@@ -1,6 +1,9 @@
 # Centos7 Vagrant
 This is the repository for https://atlas.hashicorp.com/travisrowland/boxes/centos7/ -- more stuff is coming soon.
 
+## Contributing
+Please see [Contributing](CONTRIBUTING.md) for instructions on contributing to this repository.
+
 ## Install VBoxGuestAdditions
 ```
 echo "### Install VirtualBox Guest Additions"
