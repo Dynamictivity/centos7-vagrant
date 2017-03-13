@@ -10,9 +10,6 @@ yum repolist
 echo "### Install wget"
 yum install -y wget
 
-echo "### Install kernel source headers"
-yum install -y kernel-devel-$(uname -r)
-
 echo "### Install Development Tools"
 yum groupinstall -y 'Development Tools'
 
@@ -21,7 +18,7 @@ yum install -y libselinux-python selinux-policy nano net-tools bind-utils nc scr
 
 echo "### Install VirtualBox Guest Additions"
 # Change this variable to upgrade virtualbox version
-export VBOXVERSION=5.0.26
+export VBOXVERSION=5.1.16
 ## Install latest version of VBoxGuestAdditions (https://gist.github.com/fernandoaleman/5083680)
 cd /opt && wget -c http://download.virtualbox.org/virtualbox/${VBOXVERSION}/VBoxGuestAdditions_${VBOXVERSION}.iso -O VBoxGuestAdditions_${VBOXVERSION}.iso
 mount /opt/VBoxGuestAdditions_${VBOXVERSION}.iso -o loop /mnt
@@ -110,9 +107,14 @@ echo "### Install NodeJS"
 yum install -y nodejs
 yum install -y npm
 
+## Help
+# echo "### Install kernel source headers"
+# yum install -y kernel-devel-$(uname -r)
+# service vboxadd status
+
 ## Final Steps:
 # echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key" > .ssh/authorized_keys
-# rm -rf ~/sync
+# rm -rf /vagrant
 # rm -rf ~/.bash_history
 # <CTRL> + D
 # VBoxManage list runningvms
